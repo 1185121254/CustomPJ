@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MyViewController.h
 //  CustomPJ
 //
 //  Created by chaojie on 2017/6/1.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MyViewController : UIViewController
 
 @end
-
