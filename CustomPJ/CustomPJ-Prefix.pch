@@ -9,7 +9,22 @@
 #ifndef CustomPJ_Prefix_pch
 #define CustomPJ_Prefix_pch
 
+#import "MainViewController.h"
+#import "MyViewController.h"
+#import "SettingViewController.h"
+#import "MessageViewController.h"
+#import "GuideViewController.h"
+#import "People.h"
+#import "LoginViewController.h"
+#import "RegistViewController.h"
+#import "SearchViewController.h"
+#import "LocationViewController.h"
+
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif /* CustomPJ_Prefix_pch */
+@end
+
+

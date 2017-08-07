@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ReturnCityName)(NSString *cityname);
+
 @interface LocationViewController : UIViewController
 
-@end
+@property (nonatomic, copy) ReturnCityName returnBlock;
+
+- (void)returnText:(ReturnCityName)block;

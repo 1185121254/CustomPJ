@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate ()
 
@@ -17,9 +18,51 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self.window makeKeyAndVisible];
+    
+    
+    CLLocationManager *location = [[CLLocationManager alloc]init];
+    [location requestAlwaysAuthorization];
+    
+    
+#pragma mark---------引导页
+    if ([self isFirstLaunch]) {
+        GuideViewController *guide = [[GuideViewController alloc]init];
+        self.window.rootViewController = guide;
+    }else
+    {
+        [self goLogin];
+    }
+
+    
     return YES;
 }
 
+#pragma mark---------是否是第一次登录
+-(BOOL)isFirstLaunch{
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+#pragma mark---------进入首页
+-(void)goLogin{
+    
+    LoginViewController *loginVC = [[LoginViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    self.window.rootViewController = nav;
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

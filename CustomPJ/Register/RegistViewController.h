@@ -10,4 +10,12 @@
 
 @interface RegistViewController : UIViewController
 
+@property(nonatomic,weak)id delegate;
+
+@end
+
+@protocol RegisterControllerDelegate <NSObject>
+
+-(void)ChangeContent:(NSString *)aName;
+
 @end

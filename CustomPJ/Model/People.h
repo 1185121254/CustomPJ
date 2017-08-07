@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface People : NSObject
+@interface People : NSObject<NSCoding>
+
+@property(nonatomic,strong)NSString *name;
+@property(nonatomic,strong)NSString *psw;
 
 @end
